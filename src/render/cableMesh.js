@@ -18,6 +18,11 @@ export function createCableMesh(typeId, aPos, bPos) {
 }
 
 export function updateCableMesh(mesh, aPos, bPos) {
+  const last = mesh.userData.last;
+  if (last && last.a.distanceToSquared(aPos) < 1e-6 && last.b.distanceToSquared(bPos) < 1e-6) {
+    return;
+  }
   mesh.geometry.dispose();
   mesh.geometry = buildGeometry(aPos, bPos);
+  mesh.userData.last = { a: aPos.clone(), b: bPos.clone() };
 }

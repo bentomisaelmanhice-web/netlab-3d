@@ -28,6 +28,7 @@ function startMission(mission) {
     const visual = buildDeviceVisual(device);
     visual.group.position.set(spec.pos[0], BENCH_TOP_Y, spec.pos[2]);
     ctx.scene.add(visual.group);
+    visual.group.updateMatrixWorld(true);
     state.visuals.set(device.id, visual);
   }
   updateHud();

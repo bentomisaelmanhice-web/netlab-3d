@@ -1,6 +1,10 @@
 # Dependencies
 node_modules/
 
+# Build output
+dist/
+vibe_images/
+
 # Python (local static server)
 __pycache__/
 *.pyc

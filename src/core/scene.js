@@ -5,7 +5,11 @@ export const BENCH_TOP_Y = 0.96;
 
 export function initScene(container) {
   const canvas = document.getElementById('canvas');
-  const renderer = new THREE.WebGLRenderer({ canvas, antialias: true });
+  const renderer = new THREE.WebGLRenderer({
+    canvas,
+    antialias: true,
+    powerPreference: 'high-performance',
+  });
   renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
   renderer.setSize(window.innerWidth, window.innerHeight);
 

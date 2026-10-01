@@ -6,6 +6,23 @@ ligas cabos entre portas, configuras IPs num terminal e testas com `ping`.
 
 ## Como correr
 
+### Aplicação desktop (Windows)
+
+Instalador: `dist/NetLab3D-Setup-1.0.0.exe` (gerado com Electron + electron-builder).
+Instala como aplicação normal do Windows, com atalho no ambiente de trabalho.
+
+Para desenvolvimento:
+
+```bash
+npm install      # uma vez
+npm start        # abre a janela da aplicação
+npm run dist     # gera o instalador em dist/
+```
+
+Nota: se `npm run dist` falhar com "Cannot create symbolic link", executa `node scripts/fix-symlink-build.cjs` (ajusta o 7za do electron-builder para extrair sem symlinks) e repete. Alternativa permanente: ativa o Modo de Programador no Windows (Definições → Privacidade e segurança → Para programadores).
+
+### No navegador (opcional)
+
 Precisa de um servidor estático local (módulos ES + import map):
 
 ```bash
@@ -16,7 +33,7 @@ npx serve .
 
 Abre depois http://localhost:8000 no navegador.
 
-O Three.js é carregado por CDN (jsdelivr), por isso é preciso internet na primeira carga.
+O Three.js está incluído em `vendor/` (funciona offline, sem CDN).
 
 ## Controlos
 
@@ -62,6 +79,8 @@ Liga o PC1 e o PC2 ao switch SW1 com os cabos corretos, configura IPs na rede
 - `src/core/` — cena e interação (raycasting, drag de cabos)
 - `src/ui/` — HUD, paleta e terminal CLI
 - `src/game/` — estado global e missões
+- `vendor/` — Three.js local (offline)
+- `electron/` — processo principal da aplicação desktop (protocolo `app://`, sandbox)
 
 ## Próximas fases
 
