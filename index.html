@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NetLab 3D — Laboratório de Redes</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+      "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
+    }
+  }
+  </script>
+</head>
+<body>
+  <div id="viewport"><canvas id="canvas"></canvas></div>
+
+  <header id="hud">
+    <div id="mission-info">
+      <span id="mission-title"></span>
+      <span id="mission-brief"></span>
+    </div>
+    <ul id="objectives"></ul>
+    <div id="hud-actions">
+      <span id="score">Pontos: 0</span>
+      <button id="hint-btn" title="Mostrar uma dica">Dica</button>
+      <button id="reset-btn" title="Reiniciar a missão">Reiniciar</button>
+    </div>
+  </header>
+
+  <aside id="palette">
+    <h2>Equipamentos</h2>
+    <div id="palette-devices"></div>
+    <h2>Tipo de cabo</h2>
+    <div id="palette-cables"></div>
+    <p class="palette-help">
+      Arrasta de uma porta para outra para ligar um cabo.<br>
+      Clica num equipamento para abrir o terminal.<br>
+      Rato esquerdo: orbitar · direito: mover · roda: zoom · Esc: cancelar
+    </p>
+  </aside>
+
+  <div id="terminal" class="hidden">
+    <div id="terminal-header">
+      <span id="terminal-title">Terminal</span>
+      <button id="terminal-close" title="Fechar">✕</button>
+    </div>
+    <div id="terminal-output"></div>
+    <div id="terminal-inputrow">
+      <span id="terminal-prompt">PC1&gt;</span>
+      <input id="terminal-input" autocomplete="off" spellcheck="false">
+    </div>
+  </div>
+
+  <div id="toasts"></div>
+  <div id="banner" class="hidden"></div>
+
+  <script type="module" src="src/main.js"></script>
+</body>
+</html>

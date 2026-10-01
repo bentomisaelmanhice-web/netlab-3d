@@ -1,0 +1,13 @@
+# Dependencies
+node_modules/
+
+# Python (local static server)
+__pycache__/
+*.pyc
+
+# Qoder workspace metadata
+.aicoding-chat-workspace
+
+# OS files
+.DS_Store
+Thumbs.db
